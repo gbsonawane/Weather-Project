@@ -1,0 +1,204 @@
+/* Base Variables */
+:root {
+    --light-bg: #f3f4f6;
+    --light-card: #ffffff;
+    --light-text: #333333;
+    --light-primary: #007bff;
+
+    --dark-bg: #1e293b;
+    --dark-card: #334155;
+    --dark-text: #e2e8f0;
+    --dark-primary: #3b82f6;
+
+    --transition-fast: 0.3s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--light-bg);
+    color: var(--light-text);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+/* Dark Theme Support */
+body.dark-mode {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+    background: var(--light-card);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: background var(--transition-fast);
+}
+
+body.dark-mode .container {
+    background: var(--dark-card);
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Form */
+form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+input[type="text"] {
+    flex: 1 1 60%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border var(--transition-fast);
+}
+
+input[type="text"]:focus {
+    border-color: var(--light-primary);
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--light-primary);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Weather Display */
+.weather {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.weather .left, .weather .right {
+    flex: 1 1 45%;
+    background: var(--light-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: background var(--transition-fast);
+}
+
+body.dark-mode .weather .left,
+body.dark-mode .weather .right {
+    background: #475569;
+}
+
+.left h2 {
+    font-size: 2rem;
+}
+
+.right .condition {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Forecast Section */
+.forecast {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--light-bg);
+    border-radius: 15px;
+    transition: background var(--transition-fast);
+}
+
+body.dark-mode .forecast {
+    background: #475569;
+}
+
+.forecast h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Chart Container */
+#forecastChart {
+    width: 100% !important;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Alerts Section */
+.alerts {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left: 6px solid red;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.alerts h4 {
+    color: red;
+    margin-bottom: 0.5rem;
+}
+
+/* Toggle Button for Dark Mode */
+.toggle-theme {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.toggle-theme:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .weather {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left, .right {
+        width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input[type="text"], button {
+        width: 100%;
+    }
+
+    #forecastChart {
+        max-width: 100%;
+    }
+}
